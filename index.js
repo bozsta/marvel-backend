@@ -17,6 +17,10 @@ const app = express()
 
 app.use(cors())
 
+// Routes
+const comicsRoutes = require('./routes/comics')
+app.use('/comics', comicsRoutes)
+
 app.all('*', (req, res) => {
     res.status(404).json({ message: 'URL not found' })
 })
